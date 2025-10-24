@@ -1,0 +1,65 @@
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 9999;
+  will-change: transform, opacity;
+}
+
+.cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0, 200, 255, 0.12), 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 160ms;
+}
+
+.cursor-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(0, 198, 255, 0.18),
+    rgba(0, 114, 255, 0.06) 40%,
+    transparent 60%
+  );
+  box-shadow: 0 24px 60px rgba(0, 114, 255, 0.08),
+    inset 0 0 30px rgba(0, 198, 255, 0.06);
+  mix-blend-mode: screen;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 260ms;
+  opacity: 0.98;
+}
+
+.cursor-active.cursor-ring,
+.cursor-ring.cursor-active {
+  transform: translate3d(-50%, -50%, 0) scale(0.78);
+  opacity: 1;
+}
+
+.cursor-dot.cursor-active,
+.cursor-active.cursor-dot {
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+  box-shadow: 0 12px 28px rgba(0, 198, 255, 0.28);
+}
+
+/* Hide on touch devices and when reduced motion */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}

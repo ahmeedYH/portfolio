@@ -1,0 +1,146 @@
+.about {
+  padding: 6rem 2rem;
+  background: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a202c;
+  transition: all 0.3s ease;
+}
+
+.about-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.about-point {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-point::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.about-point:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.point-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  transition: color 0.3s ease;
+}
+
+.point-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Dark mode styles */
+body.dark .about {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #ffffff;
+}
+
+body.dark .about-title {
+  background: linear-gradient(135deg, #3d50ce 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark .about-point {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+body.dark .about-point:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .point-title {
+  color: #ffffff;
+}
+
+body.dark .point-description {
+  color: #cccccc;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 1rem;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-point {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-point {
+    padding: 1rem;
+  }
+
+  .point-title {
+    font-size: 1.3rem;
+  }
+}

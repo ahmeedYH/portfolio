@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-project-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix my-portfolio-react run dev",
+    "start": "npm --prefix my-portfolio-react run start"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.9.4"
+  }
+}

@@ -1,0 +1,217 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navbar-brand a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand a:hover {
+  transform: scale(1.05);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  margin: 1rem 2rem;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-nav-link:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* Dark mode styles */
+body.dark .navbar {
+  background: rgba(26, 26, 46, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark .navbar.scrolled {
+  background: rgba(26, 26, 46, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .navbar-brand a {
+  background: linear-gradient(135deg, #3d50ce 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark .nav-link {
+  color: #ffffff;
+}
+
+body.dark .nav-link:hover {
+  color: #3d50ce;
+  background: rgba(61, 80, 206, 0.2);
+}
+
+body.dark .nav-link::after {
+  background: linear-gradient(135deg, #3d50ce 0%, #ffffff 100%);
+}
+
+body.dark .mobile-menu {
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+body.dark .mobile-nav-link {
+  color: #ffffff;
+}
+
+body.dark .mobile-nav-link:hover {
+  color: #3d50ce;
+  background: rgba(61, 80, 206, 0.2);
+}
+
+body.dark .mobile-menu-toggle span {
+  background: #ffffff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar-container {
+    padding: 1rem;
+  }
+  
+  .navbar-brand a {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0.8rem 1rem;
+  }
+  
+  .navbar-brand a {
+    font-size: 1.2rem;
+  }
+  
+  .mobile-menu {
+    margin: 0.5rem 1rem;
+  }
+}
