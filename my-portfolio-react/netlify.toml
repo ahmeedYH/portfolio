@@ -1,6 +1,7 @@
 [build]
+  base = ""               # Optional if base dir is already set in Netlify UI
   publish = "dist"
-  command = "npm run build"
+  command = "npm install && npm run build"
 
 [[redirects]]
   from = "/*"
