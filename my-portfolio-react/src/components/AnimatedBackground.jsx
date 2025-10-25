@@ -42,115 +42,25 @@ const AnimatedBackground = () => {
         <svg
           width="600"
           height="450"
-          viewBox="0 0 400 300"
+          viewBox="0 0 500 400"
           className="computer-svg"
         >
-          {/* === Coffee cup === */}
-          <motion.g
-            animate={{ y: [0, -4, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ellipse
-              cx="90"
-              cy="210"
-              rx="30"
-              ry="8"
-              fill="#ff7b00"
-              opacity="0.2"
-            />
-            <rect
-              x="70"
-              y="150"
-              width="40"
-              height="60"
-              rx="10"
-              fill="url(#cupBody)"
-              stroke="#a36eff"
-              strokeWidth="1.5"
-            />
-            <circle cx="90" cy="160" r="6" fill="#ffb3ff" />
-          </motion.g>
-
-          {/* === Laptop base === */}
-          <rect
-            x="130"
-            y="180"
-            width="180"
-            height="15"
-            rx="4"
-            fill="url(#baseGradient)"
-          />
-          <rect
-            x="120"
-            y="195"
-            width="200"
-            height="10"
-            rx="2"
-            fill="#141526"
-            opacity="0.6"
-          />
-
-          {/* === Keyboard === */}
-          <rect
-            x="140"
-            y="160"
-            width="160"
-            height="20"
-            rx="4"
-            fill="url(#keyboardGradient)"
-          />
-
-          {/* === Laptop screen === */}
-          <rect
-            x="150"
-            y="40"
-            width="140"
-            height="110"
-            rx="6"
-            fill="url(#screenGradient)"
-            stroke="#a36eff"
-            strokeWidth="2"
-          />
-
-          {/* === Screen content (animated text) === */}
-          <motion.g
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <text
-              x="160"
-              y="70"
-              fill="#ffb3ff"
-              fontSize="10"
-              fontFamily="monospace"
-            >
-              &lt;Code/&gt;
-            </text>
-            <text
-              x="160"
-              y="85"
-              fill="#e39bff"
-              fontSize="8"
-              fontFamily="monospace"
-            >
-              console.log("Ahmed Yassine");
-            </text>
-            <text
-              x="160"
-              y="100"
-              fill="#cba8ff"
-              fontSize="9"
-              fontFamily="monospace"
-            >
-              return success;
-            </text>
-          </motion.g>
-
-          {/* === Gradients === */}
           <defs>
-            <linearGradient id="baseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3a0ca3" />
-              <stop offset="100%" stopColor="#7209b7" />
+            {/* --- Gradients --- */}
+            <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#7f00ff" />
+              <stop offset="100%" stopColor="#00b4d8" />
+            </linearGradient>
+
+            <linearGradient
+              id="bodyGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="#1a1a2e" />
+              <stop offset="100%" stopColor="#16213e" />
             </linearGradient>
 
             <linearGradient
@@ -158,29 +68,134 @@ const AnimatedBackground = () => {
               x1="0%"
               y1="0%"
               x2="100%"
-              y2="100%"
+              y2="0%"
             >
-              <stop offset="0%" stopColor="#480ca8" />
-              <stop offset="100%" stopColor="#560bad" />
-            </linearGradient>
-
-            <linearGradient
-              id="screenGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" stopColor="#2b2d42" />
-              <stop offset="50%" stopColor="#4a00e0" />
-              <stop offset="100%" stopColor="#8e2de2" />
-            </linearGradient>
-
-            <linearGradient id="cupBody" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#8e2de2" />
-              <stop offset="100%" stopColor="#4a00e0" />
+              <stop offset="0%" stopColor="#3a0ca3" />
+              <stop offset="100%" stopColor="#7209b7" />
             </linearGradient>
           </defs>
+
+          {/* === Laptop base shadow === */}
+          <ellipse cx="250" cy="360" rx="150" ry="20" fill="rgba(0,0,0,0.3)" />
+
+          {/* === Laptop body === */}
+          <rect
+            x="120"
+            y="80"
+            width="260"
+            height="170"
+            rx="10"
+            fill="url(#bodyGradient)"
+            stroke="#a36eff"
+            strokeWidth="1.5"
+            filter="url(#glowFilter)"
+          />
+
+          {/* === Screen border === */}
+          <rect
+            x="130"
+            y="90"
+            width="240"
+            height="150"
+            rx="6"
+            fill="#0a0a1f"
+            stroke="url(#screenGlow)"
+            strokeWidth="2"
+            filter="drop-shadow(0 0 15px rgba(162,110,255,0.8))"
+          />
+
+          {/* === Screen content === */}
+          <motion.rect
+            x="135"
+            y="95"
+            width="230"
+            height="140"
+            rx="6"
+            fill="url(#screenGlow)"
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* === Code text (animated) === */}
+          <motion.g
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <text
+              x="150"
+              y="130"
+              fill="#fff"
+              fontSize="10"
+              fontFamily="monospace"
+            >
+              function start() {"{"}
+            </text>
+            <text
+              x="160"
+              y="145"
+              fill="#a6b1ff"
+              fontSize="9"
+              fontFamily="monospace"
+            >
+              console.log("Hello World!");
+            </text>
+            <text
+              x="150"
+              y="160"
+              fill="#ffb3ff"
+              fontSize="10"
+              fontFamily="monospace"
+            >
+              {"}"}
+            </text>
+          </motion.g>
+
+          {/* === Keyboard section === */}
+          <rect
+            x="100"
+            y="250"
+            width="300"
+            height="30"
+            rx="6"
+            fill="url(#keyboardGradient)"
+            stroke="#4a00e0"
+            strokeWidth="1"
+          />
+          {/* Keyboard keys */}
+          {[...Array(9)].map((_, i) => (
+            <rect
+              key={i}
+              x={110 + i * 30}
+              y="258"
+              width="20"
+              height="10"
+              rx="2"
+              fill="#22223b"
+              stroke="#a36eff"
+              strokeWidth="0.5"
+            />
+          ))}
+
+          {/* === Trackpad === */}
+          <rect
+            x="225"
+            y="290"
+            width="50"
+            height="15"
+            rx="3"
+            fill="#1a1a2e"
+            stroke="#a36eff"
+            strokeWidth="0.5"
+          />
+
+          {/* === Glow filter === */}
+          <filter id="glowFilter">
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </svg>
       </motion.div>
     </div>
