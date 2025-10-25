@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-container">
-        <span className="footer-badge">© {year} Ahmed Yassine</span>
+        <span className="footer-badge">© {year} Ahmed Yassine HANCHOUCH </span>
         <p className="footer-text">Built with care · All rights reserved</p>
       </div>
     </footer>
