@@ -3,15 +3,16 @@
    =============================== */
 
 .animated-background {
-  position: relative;
+  /* place background absolutely so it doesn't affect hero layout */
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
-  background-color: var(--bg-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: transparent; /* keep hero background visible */
+  pointer-events: none; /* allow clicks through */
   transition: background-color 0.5s ease;
+  z-index: 0;
 }
 
 /* Light and Dark Theme Colors */
