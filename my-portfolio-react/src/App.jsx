@@ -26,9 +26,9 @@ export default function App() {
     <>
       <Navbar toggleTheme={() => setDarkMode(!darkMode)} darkMode={darkMode} />
       <Hero />
+      <About />
       <Services />
       <Projects />
-      <About />
       <Education />
       <Skills />
       <Contact />
