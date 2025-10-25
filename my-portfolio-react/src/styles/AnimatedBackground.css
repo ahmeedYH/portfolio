@@ -1,27 +1,30 @@
 .animated-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Particles */
+.floating-particles {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* Particules flottantes */
-.floating-particles {
-  position: absolute;
   width: 100%;
   height: 100%;
 }
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.6);
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  pointer-events: none;
+  background: var(--particle-color);
+  opacity: 0.5;
 }
 
 /* Conteneur de l'ordinateur */
