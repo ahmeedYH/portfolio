@@ -1,11 +1,17 @@
 {
-  "name": "portfolio-project-root",
+  "name": "my-portfolio-react",
   "private": true,
   "scripts": {
-    "dev": "npm --prefix my-portfolio-react run dev",
-    "start": "npm --prefix my-portfolio-react run start"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^7.9.4"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
   }
 }

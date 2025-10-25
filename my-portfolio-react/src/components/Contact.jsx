@@ -16,19 +16,19 @@ export default function Contact() {
     {
       name: "GitHub",
       icon: FaGithub,
-      url: "https://github.com/ahmedhanchouch",
+      url: "https://github.com/ahmeedYH",
       color: "#333",
     },
     {
       name: "LinkedIn",
       icon: FaLinkedin,
-      url: "https://linkedin.com/in/ahmedhanchouch",
+      url: "https://www.linkedin.com/in/ahmed-yassine-hanchouch-49a9a4330/",
       color: "#0077b5",
     },
     {
       name: "Instagram",
       icon: FaInstagram,
-      url: "https://instagram.com/ahmedhanchouch",
+      url: "https://www.instagram.com/_ahmeeeeed___/",
       color: "#e4405f",
     },
   ];
