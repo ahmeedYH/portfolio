@@ -51,9 +51,10 @@ export default function Hero() {
           <a
             href="https://drive.google.com/file/d/1G2V_4cl8478P91bwUTgiZEu0e3BcCj34/view?usp=sharing"
             className="cv-button"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Download CV
+            View CV
           </a>
         </motion.div>
 
