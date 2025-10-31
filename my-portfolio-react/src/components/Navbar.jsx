@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import '../styles/Navbar.css';
-import ToggleThemeButton from './ToggleThemeButton';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import "../styles/Navbar.css";
+import ToggleThemeButton from "./ToggleThemeButton";
 
 function Navbar({ toggleTheme, darkMode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,17 +12,17 @@ function Navbar({ toggleTheme, darkMode }) {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { href: '#hero', label: 'Home' },
-    { href: '#services', label: 'Services' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#education', label: 'Education' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#contact', label: 'Contact' }
+    { href: "#hero", label: "Home" },
+    { href: "#services", label: "Services" },
+    { href: "#projects", label: "Projects" },
+    { href: "#education", label: "Education" },
+    { href: "#skills", label: "Skills" },
+    { href: "#contact", label: "Contact" },
   ];
 
   const handleNavClick = (href) => {
@@ -30,25 +30,25 @@ function Navbar({ toggleTheme, darkMode }) {
     // Smooth scroll to section
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <motion.nav 
-      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+    <motion.nav
+      className={`navbar ${isScrolled ? "scrolled" : ""}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <div className="navbar-container">
-        <motion.div 
+        <motion.div
           className="navbar-brand"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <a href="#hero" onClick={() => handleNavClick('#hero')}>
-            Ahmed Yassine
+          <a href="#hero" onClick={() => handleNavClick("#hero")}>
+            Ahmed Yassine hanchouch
           </a>
         </motion.div>
 
@@ -70,11 +70,11 @@ function Navbar({ toggleTheme, darkMode }) {
               {item.label}
             </motion.a>
           ))}
-          
+
           <ToggleThemeButton darkMode={darkMode} toggleTheme={toggleTheme} />
         </div>
 
-        <button 
+        <button
           className="mobile-menu-toggle"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
@@ -86,12 +86,12 @@ function Navbar({ toggleTheme, darkMode }) {
       </div>
 
       {/* Mobile Menu */}
-      <motion.div 
-        className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}
+      <motion.div
+        className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}
         initial={{ opacity: 0, height: 0 }}
-        animate={{ 
+        animate={{
           opacity: isMobileMenuOpen ? 1 : 0,
-          height: isMobileMenuOpen ? 'auto' : 0
+          height: isMobileMenuOpen ? "auto" : 0,
         }}
         transition={{ duration: 0.3 }}
       >
@@ -105,9 +105,9 @@ function Navbar({ toggleTheme, darkMode }) {
             }}
             className="mobile-nav-link"
             initial={{ opacity: 0, x: -20 }}
-            animate={{ 
+            animate={{
               opacity: isMobileMenuOpen ? 1 : 0,
-              x: isMobileMenuOpen ? 0 : -20
+              x: isMobileMenuOpen ? 0 : -20,
             }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
           >
@@ -120,4 +120,3 @@ function Navbar({ toggleTheme, darkMode }) {
 }
 
 export default Navbar;
-

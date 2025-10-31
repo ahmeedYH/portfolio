@@ -144,7 +144,7 @@ const Skills = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="scroll-track">
               {[...technologies, ...technologies].map((tech, index) => (

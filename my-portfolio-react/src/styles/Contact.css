@@ -160,7 +160,7 @@
 
 .contact-item:hover {
   background: rgba(102, 126, 234, 0.1);
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 
 .contact-icon {
