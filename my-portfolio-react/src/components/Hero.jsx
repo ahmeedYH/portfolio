@@ -49,7 +49,7 @@ export default function Hero() {
             View My Work
           </a>
           <a
-            href="/assets/Hanchouch_ahmed_yassine_cv.pdf"
+            href="https://drive.google.com/file/d/1G2V_4cl8478P91bwUTgiZEu0e3BcCj34/view?usp=sharing"
             className="cv-button"
             download
           >
